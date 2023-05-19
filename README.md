@@ -1,2 +1,2 @@
 # Calculadora
-Programa no Python que simula uma calculadora.
+Python program that simulates a calculator.
