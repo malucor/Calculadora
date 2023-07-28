@@ -1,45 +1,63 @@
+import os
 import math
 
-print("+ = soma \n"
-      "- = subtração \n"
-      "* = multiplicação \n"
-      "/ = divisão \n"
-      "** = potenciação \n"
-      "^ = radiciação \n"
-      "log = logaritmo")
+print('+ = Adição \n'
+      '- = Subtração \n'
+      '* = Multipicação \n'
+      '/ = Divisão \n'
+      '** = Potenciação \n'
+      '^ = Radiação \n'
+      'log = Logaritmo \n')
 
-print("\n")
+primeiro_numero = float(input('Primeiro número: '))
+operacao = str(input('Operação: '))
+segundo_numero = float(input('Segundo número: '))
 
-numero1 = float(input('Digite o primeiro número: \n'))
-operacao = str(input('Digite o símbolo da operção: \n'))
-numero2 = float(input('Digite o segundo número: \n'))
-
-print("\n")
+os.system('cls') or None
 
 if operacao == '+':
-  resultado = numero1 + numero2
-  print(f'{numero1} + {numero2} = {resultado}')
+    try:
+        resultado = primeiro_numero + segundo_numero
+        print(f'{primeiro_numero} + {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
 elif operacao == '-':
-  resultado = numero1 - numero2
-  print(f'{numero1} - {numero2} = {resultado}')
+    try:
+        resultado = primeiro_numero - segundo_numero
+        print(f'{primeiro_numero} - {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
 elif operacao == '*':
-  resultado = numero1 * numero2
-  print(f'{numero1} * {numero2} = {resultado}')
+    try:
+        resultado = primeiro_numero * segundo_numero
+        print(f'{primeiro_numero} * {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
 elif operacao == '/':
-  try:
-    resultado = numero1 / numero2
-    print(f'{numero1} / {numero2} = {resultado}')
-  except ZeroDivisionError:
-    print("Zero não divide")
-    print("Tente novamente")
+    try:
+        resultado = primeiro_numero / segundo_numero
+        print(f'{primeiro_numero} / {segundo_numero} = {resultado}')
+    except ZeroDivisionError:
+        print("Error: Zero não divide")
+    except OverflowError:
+        print("Error: Números muito grandes")
 elif operacao == '**':
-  resultado = math.pow(numero1, numero2)
-  print(f'{numero1} ** {numero2} = {resultado}')
+    try:
+        resultado = math.pow(primeiro_numero, segundo_numero)
+        print(f'{primeiro_numero} ** {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
 elif operacao == '^':
-  resultado = math.pow(numero1, (1/numero2))
-  print(f'{numero1} ^ {numero2} = {resultado}')
-elif operacao == 'log':
-  resultado = math.log(numero1, numero2)
-  print(f'log {numero1} base {numero2} = {resultado}')
+    try:
+        resultado = math.pow(primeiro_numero, 1/segundo_numero)
+        print(f'{primeiro_numero} ^ {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
+elif operacao == 'log' or operacao == 'loG' or operacao == 'lOg' or operacao == 'Log' or operacao == 'LOg' or operacao == 'lOG' or operacao == 'LoG' or operacao == 'LOG':
+    try:
+        resultado = math.log(primeiro_numero, segundo_numero)
+        print(f'log de {primeiro_numero} com base {segundo_numero} = {resultado}')
+    except OverflowError:
+        print("Error: Números muito grandes")
 else:
-  print("Operação Inválida")
+    print('Operação inválida')
